@@ -20,7 +20,7 @@ spec:
         tier: service
     spec:
       containers:
-        - image: ganeshprasad1234/pages:volume
+        - image: ganeshprasad1234/pages:distributed
           name: pages
           ports:
             - containerPort: 8080
