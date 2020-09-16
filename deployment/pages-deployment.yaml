@@ -20,7 +20,7 @@ spec:
         tier: service
     spec:
       containers:
-        - image: ganeshprasad1234/pages:log
+        - image: ganeshprasad1234/pages:volume
           name: pages
           ports:
             - containerPort: 8080
@@ -31,7 +31,7 @@ spec:
                   name: pages-config-map
                   key: PAGE_CONTENT
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://pages-mysql/pages
+              value: jdbc:mysql://pages-mysql/pages?allowPublicKeyRetrieval=true&useSSL=false
             - name: SPRING_DATASOURCE_USERNAME
               value: "root"
             - name: SPRING_DATASOURCE_PASSWORD
@@ -63,6 +63,7 @@ spec:
               port: 8080
             initialDelaySeconds: 15
             periodSeconds: 30
+
       volumes:
         - name: node-dir
           hostPath:
